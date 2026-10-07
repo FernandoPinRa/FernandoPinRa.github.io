@@ -45,7 +45,6 @@ export interface Profile {
   readonly github: Link;
   readonly linkedin: Link;
   readonly cv: Localized;
-  readonly photo: Image;
   readonly languages: readonly SpokenLanguage[];
   readonly education: readonly Education[];
 }
