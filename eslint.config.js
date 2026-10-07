@@ -7,7 +7,13 @@ const prettier = require('eslint-config-prettier');
 
 module.exports = defineConfig([
   {
-    ignores: ['dist/**', '.angular/**', 'coverage/**', 'cypress/screenshots/**', 'cypress/videos/**'],
+    ignores: [
+      'dist/**',
+      '.angular/**',
+      'coverage/**',
+      'cypress/screenshots/**',
+      'cypress/videos/**',
+    ],
   },
   {
     files: ['**/*.ts'],
@@ -36,6 +42,7 @@ module.exports = defineConfig([
         { accessibility: 'no-public', overrides: { constructors: 'off' } },
       ],
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-extraneous-class': ['error', { allowWithDecorator: true }],
     },
   },
   {
@@ -48,7 +55,11 @@ module.exports = defineConfig([
     },
   },
   {
-    files: ['cypress/**/*.ts', '*.config.ts'],
-    rules: { '@typescript-eslint/no-namespace': 'off' },
+    // Tests may assert on elements they know exist and stub browser APIs.
+    files: ['**/*.spec.ts', 'cypress/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
+    },
   },
 ]);
