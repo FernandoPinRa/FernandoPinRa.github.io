@@ -1,0 +1,37 @@
+<div class="container reveal">
+  <app-section-heading [index]="index()" [title]="t('about.title')" [headingId]="headingId()" />
+
+  <div class="layout">
+    <div class="prose">
+      @for (paragraph of loc(profile.summary); track $index) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    <aside class="facts">
+      <section aria-labelledby="languages-title">
+        <h3 id="languages-title" class="facts-title">{{ t('about.languages') }}</h3>
+        <ul role="list">
+          @for (language of profile.languages; track language.name.en) {
+            <li>
+              <span>{{ loc(language.name) }}</span>
+              <span class="level">{{ loc(language.level) }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h3 id="education-title" class="facts-title">{{ t('about.education') }}</h3>
+        <ul role="list">
+          @for (item of profile.education; track item.school) {
+            <li class="education">
+              <span>{{ loc(item.title) }}</span>
+              <span class="level">{{ item.school }} · {{ item.start }}–{{ item.end }}</span>
+            </li>
+          }
+        </ul>
+      </section>
+    </aside>
+  </div>
+</div>

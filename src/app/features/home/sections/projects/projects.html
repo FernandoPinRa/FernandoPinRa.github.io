@@ -1,0 +1,47 @@
+<div class="container reveal">
+  <app-section-heading [index]="index()" [title]="t('projects.title')" [headingId]="headingId()" />
+
+  <p class="intro">{{ t('projects.intro') }}</p>
+
+  <div class="toolbar">
+    <ul class="tag-list filters" role="list" [attr.aria-label]="t('projects.filterLabel')">
+      <li>
+        <button
+          type="button"
+          class="tag"
+          [attr.aria-pressed]="selectedTech() === null"
+          (click)="selectedTech.set(null)"
+        >
+          {{ t('projects.all') }}
+        </button>
+      </li>
+      @for (tech of technologies; track tech) {
+        <li>
+          <button
+            type="button"
+            class="tag"
+            [attr.aria-pressed]="selectedTech() === tech"
+            (click)="select(tech)"
+          >
+            {{ tech }}
+          </button>
+        </li>
+      }
+    </ul>
+    <p class="count" aria-live="polite">{{ countLabel() }}</p>
+  </div>
+
+  <ul class="grid" role="list">
+    @for (project of visibleProjects(); track project.slug) {
+      <li>
+        <app-project-card
+          [project]="project"
+          [activeTech]="selectedTech()"
+          (techSelected)="select($event)"
+        />
+      </li>
+    } @empty {
+      <li class="empty">{{ t('projects.empty') }}</li>
+    }
+  </ul>
+</div>

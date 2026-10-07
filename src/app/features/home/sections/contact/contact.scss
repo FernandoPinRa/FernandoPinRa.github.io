@@ -1,0 +1,99 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-xl);
+
+  @include up(lg) {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+    gap: var(--space-2xl);
+  }
+}
+
+.pitch {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.text {
+  max-width: 50ch;
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+}
+
+.email {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 0.9rem + 2.2vw, 2.4rem);
+  font-style: italic;
+  color: var(--color-accent);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 2px;
+
+  @include motion {
+    transition: background-size var(--duration-base) var(--ease-out);
+  }
+
+  &:hover {
+    background-size: 100% 2px;
+  }
+}
+
+.channels {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+  text-decoration: none;
+
+  app-icon {
+    --icon-size: 1.4rem;
+
+    grid-row: span 2;
+    color: var(--color-muted);
+
+    @include motion {
+      transition:
+        color var(--duration-fast),
+        transform var(--duration-base) var(--ease-out);
+    }
+  }
+
+  &:hover {
+    color: var(--color-accent);
+
+    app-icon {
+      color: var(--color-accent);
+      transform: translateX(4px);
+    }
+  }
+}
+
+.channel-detail {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,6 @@
+<a class="skip-link" href="#main" (click)="skipToContent($event)">{{ t('a11y.skipToContent') }}</a>
+<app-header />
+<main id="main" #main tabindex="-1">
+  <router-outlet />
+</main>
+<app-footer />

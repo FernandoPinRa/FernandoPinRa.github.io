@@ -1,0 +1,17 @@
+// Self-hosted variable font (latin subset). Fraunces carries the personality;
+// body text uses the system UI font so it costs no download.
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-italic.woff2') format('woff2-variations');
+}

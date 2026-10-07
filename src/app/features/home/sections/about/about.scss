@@ -1,0 +1,65 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+// Text at a comfortable reading width; languages and education sit beside it
+// on wide screens and below it on narrow ones.
+.layout {
+  display: grid;
+  gap: var(--space-xl) var(--space-2xl);
+
+  @include up(lg) {
+    grid-template-columns: minmax(0, 65ch) var(--sidebar);
+    justify-content: space-between;
+    align-items: start;
+  }
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-xl);
+
+  @include up(sm) {
+    grid-template-columns: 1fr 1.4fr;
+  }
+
+  @include up(lg) {
+    grid-template-columns: none;
+    padding-top: var(--space-2xs);
+  }
+
+  ul {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .education {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.facts-title {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.level {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}

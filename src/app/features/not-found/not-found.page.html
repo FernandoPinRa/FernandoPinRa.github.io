@@ -1,0 +1,8 @@
+<section class="not-found container" aria-labelledby="not-found-title">
+  <p class="code" aria-hidden="true">{{ t('notFound.code') }}</p>
+  <h1 id="not-found-title" class="title">{{ t('notFound.title') }}</h1>
+  <p class="text">{{ t('notFound.text') }}</p>
+  <a class="btn btn--primary" [routerLink]="homePath()">
+    <app-icon name="arrowLeft" /> {{ t('notFound.home') }}
+  </a>
+</section>

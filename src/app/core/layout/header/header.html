@@ -1,0 +1,57 @@
+<div class="bar container">
+  <a class="brand" [routerLink]="homePath()">
+    fp<span class="brand-dot" aria-hidden="true">.</span>
+    <span class="visually-hidden">— Fernando Pintado Ramos, {{ t('nav.home') }}</span>
+  </a>
+
+  <nav class="nav" [attr.aria-label]="t('a11y.primaryNav')">
+    <button
+      type="button"
+      class="icon-button menu-toggle"
+      aria-controls="primary-menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? t('a11y.closeMenu') : t('a11y.openMenu')"
+      (click)="toggleMenu()"
+    >
+      <app-icon [name]="menuOpen() ? 'close' : 'menu'" />
+    </button>
+
+    <ul id="primary-menu" class="menu" role="list" [class.is-open]="menuOpen()">
+      @for (item of navItems; track item.fragment) {
+        <li>
+          <a
+            class="menu-link"
+            [routerLink]="homePath()"
+            [fragment]="item.fragment"
+            (click)="menuOpen.set(false)"
+          >
+            {{ t(item.label) }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="actions">
+    <a
+      class="icon-button lang"
+      [routerLink]="alternate().path"
+      [fragment]="alternate().fragment"
+      [attr.hreflang]="otherLang()"
+      [attr.lang]="otherLang()"
+      (click)="switchLanguage()"
+    >
+      {{ otherLang().toUpperCase() }}
+      <span class="visually-hidden">— {{ t('a11y.switchLanguage') }}</span>
+    </a>
+    <button
+      type="button"
+      class="icon-button theme"
+      [attr.aria-label]="t('a11y.toggleTheme')"
+      (click)="theme.toggle()"
+    >
+      <app-icon class="theme-icon theme-icon--moon" name="moon" />
+      <app-icon class="theme-icon theme-icon--sun" name="sun" />
+    </button>
+  </div>
+</div>

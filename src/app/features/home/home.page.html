@@ -1,0 +1,41 @@
+<app-hero />
+
+<section id="about" class="section" aria-labelledby="about-title">
+  @defer (on viewport; prefetch on idle; hydrate on viewport) {
+    <app-about index="01" headingId="about-title" />
+  } @placeholder {
+    <div class="placeholder" style="--placeholder-height: 36rem"></div>
+  }
+</section>
+
+<section id="experience" class="section" aria-labelledby="experience-title">
+  @defer (on viewport; prefetch on idle; hydrate on viewport) {
+    <app-experience index="02" headingId="experience-title" />
+  } @placeholder {
+    <div class="placeholder" style="--placeholder-height: 48rem"></div>
+  }
+</section>
+
+<section id="projects" class="section" aria-labelledby="projects-title">
+  @defer (on viewport; prefetch on idle; hydrate on viewport) {
+    <app-projects index="03" headingId="projects-title" />
+  } @placeholder {
+    <div class="placeholder" style="--placeholder-height: 56rem"></div>
+  }
+</section>
+
+<section id="skills" class="section" aria-labelledby="skills-title">
+  @defer (on viewport; prefetch on idle; hydrate on viewport) {
+    <app-skills index="04" headingId="skills-title" />
+  } @placeholder {
+    <div class="placeholder" style="--placeholder-height: 30rem"></div>
+  }
+</section>
+
+<section id="contact" class="section" aria-labelledby="contact-title">
+  @defer (on viewport; prefetch on idle; hydrate on viewport) {
+    <app-contact index="05" headingId="contact-title" />
+  } @placeholder {
+    <div class="placeholder" style="--placeholder-height: 28rem"></div>
+  }
+</section>

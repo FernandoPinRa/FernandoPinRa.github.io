@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fernando Pintado Ramos · Desarrollador Front-End Angular</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Fernando Pintado Ramos" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f6f3ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#17150f" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="favicon.ico" sizes="32x32" />
+    <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
+    <script>
+      // Runs before first paint: applies the saved theme (no flash) and
+      // sends returning visitors to the language they chose last time.
+      (function () {
+        try {
+          var root = document.documentElement;
+          var theme = localStorage.getItem('theme');
+          if (theme === 'light' || theme === 'dark') root.setAttribute('data-theme', theme);
+
+          var lang = localStorage.getItem('lang');
+          var path = location.pathname.replace(/\/+$/, '') || '/';
+          var isEn = /^\/en(\/|$)/.test(path);
+          if ((lang !== 'en' || isEn) && (lang !== 'es' || !isEn)) return;
+
+          var project = /^\/(?:en\/projects|proyectos)\/([^/]+)$/.exec(path);
+          var isHome = path === '/' || path === '/en';
+          if (!project && !isHome) return;
+
+          var target =
+            lang === 'en'
+              ? project
+                ? '/en/projects/' + project[1] + '/'
+                : '/en/'
+              : project
+                ? '/proyectos/' + project[1] + '/'
+                : '/';
+          location.replace(target + location.hash);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

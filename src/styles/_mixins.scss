@@ -1,0 +1,18 @@
+// Mobile first: styles target small screens, these add from a width up.
+$breakpoints: (
+  sm: 36rem,
+  md: 48rem,
+  lg: 64rem,
+);
+
+@mixin up($name) {
+  @media (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin motion {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}

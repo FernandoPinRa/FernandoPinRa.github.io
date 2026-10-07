@@ -1,0 +1,88 @@
+@let p = project();
+<article class="detail container" aria-labelledby="project-title">
+  <a class="back" [routerLink]="homePath()" fragment="projects">
+    <app-icon name="arrowLeft" /> {{ t('detail.back') }}
+  </a>
+
+  <header class="header">
+    <p class="eyebrow">{{ t('detail.year') }} {{ p.year }}</p>
+    <h1 id="project-title" class="title">{{ p.title }}</h1>
+    <p class="lead">{{ loc(p.summary) }}</p>
+
+    <div class="actions">
+      @if (p.demoUrl; as demoUrl) {
+        <a class="btn btn--primary" [href]="demoUrl" target="_blank" rel="noopener">
+          {{ t('projects.demo') }} <app-icon name="external" />
+          <span class="visually-hidden">{{ t('a11y.newTab') }}</span>
+        </a>
+      }
+      @if (p.repoUrl; as repoUrl) {
+        <a
+          class="btn"
+          [class.btn--primary]="!p.demoUrl"
+          [href]="repoUrl"
+          target="_blank"
+          rel="noopener"
+        >
+          <app-icon name="github" /> {{ t('projects.repo') }}
+          <span class="visually-hidden">{{ t('a11y.newTab') }}</span>
+        </a>
+      }
+    </div>
+  </header>
+
+  <figure class="cover">
+    <img
+      [ngSrc]="p.image.src"
+      [width]="p.image.width"
+      [height]="p.image.height"
+      [alt]="loc(p.image.alt)"
+      priority
+    />
+  </figure>
+
+  <div class="body">
+    <section class="overview" aria-labelledby="overview-title">
+      <h2 id="overview-title" class="overview-title">{{ t('detail.overview') }}</h2>
+      <div class="prose">
+        @for (paragraph of loc(p.description); track $index) {
+          <p>{{ paragraph }}</p>
+        }
+      </div>
+    </section>
+
+    <aside class="aside">
+      @if (loc(p.highlights).length) {
+        <section aria-labelledby="highlights-title">
+          <h2 id="highlights-title" class="aside-title">{{ t('detail.highlights') }}</h2>
+          <ul class="highlights">
+            @for (highlight of loc(p.highlights); track $index) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+        </section>
+      }
+      <section aria-labelledby="stack-title">
+        <h2 id="stack-title" class="aside-title">{{ t('detail.stack') }}</h2>
+        <ul class="tag-list" role="list">
+          @for (tech of p.stack; track tech) {
+            <li class="tag">{{ tech }}</li>
+          }
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  @if (otherProjects().length) {
+    <nav class="more" [attr.aria-label]="t('detail.more')">
+      <h2 class="aside-title">{{ t('detail.more') }}</h2>
+      <ul role="list">
+        @for (item of otherProjects(); track item.project.slug) {
+          <li>
+            <a class="link" [routerLink]="item.path">{{ item.project.title }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+  }
+</article>

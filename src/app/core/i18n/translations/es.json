@@ -1,0 +1,86 @@
+{
+  "a11y": {
+    "skipToContent": "Saltar al contenido",
+    "primaryNav": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "toggleTheme": "Cambiar entre tema claro y oscuro",
+    "switchLanguage": "Read this site in English",
+    "newTab": "(se abre en una pestaña nueva)"
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "home": "Inicio"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "ctaProjects": "Ver proyectos",
+    "ctaCv": "Descargar CV",
+    "ctaCvHint": "PDF",
+    "ctaContact": "Hablemos"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "languages": "Idiomas",
+    "education": "Formación",
+    "location": "Ubicación"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "present": "Actualidad",
+    "stack": "Tecnologías"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "intro": "Una selección de lo que construyo fuera del trabajo. Filtra por tecnología o pulsa una etiqueta de cualquier tarjeta.",
+    "filterLabel": "Filtrar proyectos por tecnología",
+    "all": "Todos",
+    "countOne": "{count} proyecto",
+    "countOther": "{count} proyectos",
+    "empty": "No hay proyectos con esa tecnología todavía.",
+    "repo": "Código",
+    "demo": "Demo",
+    "details": "Ver detalle",
+    "comingSoon": "Próximamente",
+    "filterBy": "Filtrar por {tech}"
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "contact": {
+    "title": "Contacto",
+    "heading": "¿Construimos algo juntos?",
+    "text": "Busco un puesto en remoto como desarrollador Front-End con Angular o Full Stack. Si encajo en tu equipo, escríbeme.",
+    "emailCta": "Escríbeme un email"
+  },
+  "footer": {
+    "builtWith": "Hecho con Angular, signals y SCSS. Sin frameworks de UI.",
+    "source": "Ver el código",
+    "backToTop": "Volver arriba"
+  },
+  "detail": {
+    "back": "Todos los proyectos",
+    "overview": "Descripción",
+    "highlights": "Lo más destacado",
+    "stack": "Stack",
+    "links": "Enlaces",
+    "year": "Año",
+    "more": "Más proyectos"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Esta página no existe",
+    "text": "Puede que el enlace esté roto o que la página se haya movido.",
+    "home": "Volver al inicio"
+  },
+  "seo": {
+    "homeTitle": "Fernando Pintado Ramos · Desarrollador Front-End Angular",
+    "homeDescription": "Portfolio de Fernando Pintado Ramos, desarrollador Front-End especializado en Angular y TypeScript, con perfil full stack en Python y Django. Disponible para trabajo en remoto.",
+    "notFoundTitle": "Página no encontrada · Fernando Pintado Ramos",
+    "projectTitle": "{project} · Proyectos de Fernando Pintado Ramos"
+  }
+}

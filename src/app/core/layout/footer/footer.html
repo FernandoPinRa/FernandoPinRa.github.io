@@ -1,0 +1,11 @@
+<div class="inner container">
+  <p class="credits">
+    © {{ year }} {{ name }}. {{ t('footer.builtWith') }}
+    <a class="link" [href]="sourceUrl" target="_blank" rel="noopener">
+      {{ t('footer.source') }}<span class="visually-hidden"> {{ t('a11y.newTab') }}</span>
+    </a>
+  </p>
+  <a class="top" href="#top" (click)="backToTop($event)">
+    {{ t('footer.backToTop') }} <app-icon name="arrowUp" />
+  </a>
+</div>

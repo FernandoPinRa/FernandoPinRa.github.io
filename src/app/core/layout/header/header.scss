@@ -1,0 +1,185 @@
+@use 'mixins' as *;
+
+:host {
+  --icon-size: 1.125rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: block;
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: var(--header-height);
+}
+
+.brand {
+  margin-right: auto;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.brand-dot {
+  color: var(--color-accent);
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 var(--space-xs);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include motion {
+    transition:
+      border-color var(--duration-fast),
+      color var(--duration-fast);
+  }
+
+  &:hover {
+    border-color: var(--color-border);
+    color: var(--color-accent);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2xs);
+  // Pull the last button's padding past the edge so its icon, not its hit
+  // area, lines up with the right edge of the container.
+  margin-inline-end: calc((2.75rem - var(--icon-size)) / -2);
+}
+
+// Only the icon for the theme you would switch to is shown.
+.theme-icon--sun {
+  display: none;
+}
+
+:host-context([data-theme='dark']) {
+  .theme-icon--sun {
+    display: inline-flex;
+  }
+
+  .theme-icon--moon {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :host-context(:root:not([data-theme='light'])) {
+    .theme-icon--sun {
+      display: inline-flex;
+    }
+
+    .theme-icon--moon {
+      display: none;
+    }
+  }
+}
+
+.theme {
+  @include motion {
+    app-icon {
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+
+    &:hover app-icon {
+      transform: rotate(-20deg);
+    }
+  }
+}
+
+.menu {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &.is-open {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: grid;
+    padding: var(--space-sm) var(--gutter) var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+.menu-link {
+  display: block;
+  padding: var(--space-sm) 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+@include up(md) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu,
+  .menu.is-open {
+    position: static;
+    display: flex;
+    gap: var(--space-lg);
+    padding: 0;
+    border: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .menu-link {
+    position: relative;
+    padding: var(--space-xs) 0;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0.2rem;
+      height: 1.5px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+
+      @include motion {
+        transition: transform var(--duration-base) var(--ease-out);
+      }
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  .nav {
+    margin-right: var(--space-md);
+  }
+}
