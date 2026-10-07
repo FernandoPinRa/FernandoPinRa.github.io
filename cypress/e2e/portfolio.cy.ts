@@ -30,6 +30,9 @@ describe('Portfolio', () => {
 
   it('filters projects and opens a project detail page', () => {
     cy.visit('/#projects');
+    // The section hydrates incrementally; a click on the prerendered markup before
+    // that finishes is not replayed. Angular drops `jsaction` once it is hydrated.
+    cy.get('.filters button').should('not.have.attr', 'jsaction');
     cy.get('.filters')
       .contains('button', 'Python')
       .click()
