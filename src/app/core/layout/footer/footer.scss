@@ -1,0 +1,40 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+  margin-top: var(--space-3xl);
+  padding-block: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.top {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 2.75rem;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  app-icon {
+    @include motion {
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+  }
+
+  &:hover app-icon {
+    transform: translateY(-3px);
+  }
+}
