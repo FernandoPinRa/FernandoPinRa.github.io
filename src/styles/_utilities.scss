@@ -1,5 +1,8 @@
 @use 'mixins' as *;
 
+// The one layout container: header, hero, sections and footer all use it so
+// they share the same max-width and side padding. Don't add inline padding or
+// max-width to elements that carry it.
 .container {
   width: 100%;
   max-width: calc(var(--container) + 2 * var(--gutter));

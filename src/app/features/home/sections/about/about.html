@@ -2,22 +2,13 @@
   <app-section-heading [index]="index()" [title]="t('about.title')" [headingId]="headingId()" />
 
   <div class="layout">
-    <figure class="portrait">
-      <img
-        [ngSrc]="profile.photo.src"
-        [width]="profile.photo.width"
-        [height]="profile.photo.height"
-        [alt]="loc(profile.photo.alt)"
-      />
-    </figure>
-
     <div class="prose">
       @for (paragraph of loc(profile.summary); track $index) {
         <p>{{ paragraph }}</p>
       }
     </div>
 
-    <div class="facts">
+    <aside class="facts">
       <section aria-labelledby="languages-title">
         <h3 id="languages-title" class="facts-title">{{ t('about.languages') }}</h3>
         <ul role="list">
@@ -41,6 +32,6 @@
           }
         </ul>
       </section>
-    </div>
+    </aside>
   </div>
 </div>

@@ -35,12 +35,6 @@ export const PROFILE: Profile = {
     es: '/cv/fernando-pintado-ramos-cv.pdf',
     en: '/cv/fernando-pintado-ramos-cv.pdf',
   },
-  photo: {
-    src: '/img/profile.svg',
-    alt: { es: 'Retrato de Fernando Pintado Ramos', en: 'Portrait of Fernando Pintado Ramos' },
-    width: 480,
-    height: 600,
-  },
   languages: [
     { name: { es: 'Español', en: 'Spanish' }, level: { es: 'Nativo', en: 'Native' } },
     { name: { es: 'Inglés', en: 'English' }, level: { es: 'B2', en: 'B2' } },

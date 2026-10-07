@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
 
 import { I18nService } from '../../../../core/i18n/i18n.service';
 import { PROFILE } from '../../../../data/profile';
@@ -7,7 +6,7 @@ import { SectionHeading } from '../../../../shared/ui/section-heading/section-he
 
 @Component({
   selector: 'app-about',
-  imports: [NgOptimizedImage, SectionHeading],
+  imports: [SectionHeading],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './about.html',
   styleUrl: './about.scss',

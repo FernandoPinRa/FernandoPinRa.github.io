@@ -129,7 +129,6 @@ Para añadir un idioma:
 
 ## Personalizar
 
-- **Foto:** sustituye `public/img/profile.svg` por tu foto (por ejemplo `profile.webp` a 480×600) y actualiza `photo` en `data/profile.ts`.
 - **CV:** sustituye `public/cv/fernando-pintado-ramos-cv.pdf`. Si tienes uno por idioma, cambia `cv.en` en `data/profile.ts`.
 - **Imagen para redes:** `public/og-image.png` (1200×630).
 - **Colores y tipografía:** `src/styles/_tokens.scss`.
