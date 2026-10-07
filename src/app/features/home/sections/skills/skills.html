@@ -1,0 +1,16 @@
+<div class="container reveal">
+  <app-section-heading [index]="index()" [title]="t('skills.title')" [headingId]="headingId()" />
+
+  <div class="groups">
+    @for (group of groups; track group.id) {
+      <section class="group" [attr.aria-labelledby]="'skills-' + group.id">
+        <h3 class="group-title" [id]="'skills-' + group.id">{{ loc(group.label) }}</h3>
+        <ul class="items" role="list">
+          @for (item of group.items; track $index) {
+            <li>{{ loc(item) }}</li>
+          }
+        </ul>
+      </section>
+    }
+  </div>
+</div>

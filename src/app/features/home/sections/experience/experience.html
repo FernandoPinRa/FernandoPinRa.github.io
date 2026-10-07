@@ -1,0 +1,40 @@
+<div class="container reveal">
+  <app-section-heading
+    [index]="index()"
+    [title]="t('experience.title')"
+    [headingId]="headingId()"
+  />
+
+  <ol class="timeline" role="list">
+    @for (job of jobs; track job.id) {
+      <li class="entry">
+        <p class="period">
+          <time [attr.datetime]="job.start">{{ job.start | yearMonth: lang() }}</time>
+          <span aria-hidden="true"> — </span>
+          @if (job.end; as end) {
+            <time [attr.datetime]="end">{{ end | yearMonth: lang() }}</time>
+          } @else {
+            <span class="current">{{ t('experience.present') }}</span>
+          }
+        </p>
+
+        <article class="body">
+          <h3 class="role">{{ loc(job.role) }}</h3>
+          <p class="company">
+            <strong>{{ job.company }}</strong> · {{ loc(job.location) }}
+          </p>
+          <ul class="highlights">
+            @for (highlight of loc(job.highlights); track $index) {
+              <li>{{ highlight }}</li>
+            }
+          </ul>
+          <ul class="tag-list" [attr.aria-label]="t('experience.stack')">
+            @for (tech of job.stack; track tech) {
+              <li class="tag">{{ tech }}</li>
+            }
+          </ul>
+        </article>
+      </li>
+    }
+  </ol>
+</div>

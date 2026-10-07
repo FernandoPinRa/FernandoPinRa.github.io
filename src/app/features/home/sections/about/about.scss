@@ -1,0 +1,91 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+.layout {
+  display: grid;
+  grid-template-areas:
+    'portrait'
+    'prose'
+    'facts';
+  gap: var(--space-xl);
+
+  @include up(md) {
+    grid-template-columns: minmax(12rem, 18rem) 1fr;
+    grid-template-areas:
+      'portrait prose'
+      'portrait facts';
+    column-gap: var(--space-2xl);
+  }
+}
+
+.portrait {
+  grid-area: portrait;
+  max-width: 18rem;
+
+  img {
+    width: 100%;
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    filter: grayscale(0.15);
+    transform: rotate(-1.5deg);
+    box-shadow: var(--shadow-card);
+
+    @include motion {
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+  }
+
+  &:hover img {
+    transform: rotate(0deg);
+  }
+}
+
+.prose {
+  grid-area: prose;
+}
+
+.facts {
+  grid-area: facts;
+  display: grid;
+  gap: var(--space-xl);
+
+  @include up(sm) {
+    grid-template-columns: 1fr 1.4fr;
+  }
+
+  ul {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px dashed var(--color-border);
+  }
+
+  .education {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.facts-title {
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.level {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}

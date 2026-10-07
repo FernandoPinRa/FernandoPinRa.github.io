@@ -1,0 +1,97 @@
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+.timeline {
+  margin: 0;
+}
+
+.entry {
+  position: relative;
+  display: grid;
+  gap: var(--space-xs);
+  padding: 0 0 var(--space-xl) var(--space-lg);
+  border-left: 1px solid var(--color-border);
+
+  // Marker on the timeline rail.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.45rem;
+    left: -0.3125rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-bg);
+
+    @include motion {
+      transition: background-color var(--duration-base);
+    }
+  }
+
+  &:hover::before {
+    background: var(--color-accent);
+  }
+
+  @include up(md) {
+    grid-template-columns: 11rem 1fr;
+    column-gap: var(--space-xl);
+    padding: 0;
+    border-left: 0;
+
+    &::before {
+      left: calc(11rem + var(--space-xl) - 0.3125rem);
+    }
+
+    .body {
+      padding: 0 0 var(--space-xl) var(--space-lg);
+      border-left: 1px solid var(--color-border);
+    }
+  }
+}
+
+.period {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  padding-top: 0.15rem;
+}
+
+.current {
+  color: var(--color-accent);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.role {
+  font-size: var(--text-xl);
+}
+
+.company {
+  color: var(--color-muted);
+
+  strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+}
+
+.highlights {
+  display: grid;
+  gap: var(--space-2xs);
+  max-width: 65ch;
+  padding-left: 1.1rem;
+
+  li::marker {
+    color: var(--color-accent);
+  }
+}

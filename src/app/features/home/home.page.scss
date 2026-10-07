@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.section {
+  padding-block: var(--space-2xl);
+}
+
+// Keeps the layout stable while a section's code is loading after client navigation.
+.placeholder {
+  min-height: var(--placeholder-height);
+}

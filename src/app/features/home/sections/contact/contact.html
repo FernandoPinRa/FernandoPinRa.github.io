@@ -1,0 +1,46 @@
+<div class="container reveal">
+  <app-section-heading [index]="index()" [title]="t('contact.title')" [headingId]="headingId()" />
+
+  <div class="layout">
+    <div class="pitch">
+      <p class="heading">{{ t('contact.heading') }}</p>
+      <p class="text">{{ t('contact.text') }}</p>
+      <a class="email" [href]="'mailto:' + profile.email">
+        <span class="visually-hidden">{{ t('contact.emailCta') }}: </span>{{ profile.email }}
+      </a>
+    </div>
+
+    <ul class="channels" role="list">
+      <li>
+        <a class="channel" [href]="'mailto:' + profile.email">
+          <app-icon name="mail" />
+          <span>Email</span>
+          <span class="channel-detail">{{ t('contact.emailCta') }}</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" [href]="profile.github.url" target="_blank" rel="noopener me">
+          <app-icon name="github" />
+          <span>GitHub</span>
+          <span class="channel-detail">{{ profile.github.label }}</span>
+          <span class="visually-hidden">{{ t('a11y.newTab') }}</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" [href]="profile.linkedin.url" target="_blank" rel="noopener me">
+          <app-icon name="linkedin" />
+          <span>LinkedIn</span>
+          <span class="channel-detail">{{ profile.linkedin.label }}</span>
+          <span class="visually-hidden">{{ t('a11y.newTab') }}</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" [href]="loc(profile.cv)" download>
+          <app-icon name="download" />
+          <span>CV</span>
+          <span class="channel-detail">{{ t('hero.ctaCv') }} · PDF</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

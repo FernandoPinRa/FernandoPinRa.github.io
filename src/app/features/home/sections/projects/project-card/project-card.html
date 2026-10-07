@@ -1,0 +1,67 @@
+@let p = project();
+<article class="card" [class.is-coming-soon]="comingSoon()">
+  <div class="media">
+    <img
+      [ngSrc]="p.image.src"
+      [width]="p.image.width"
+      [height]="p.image.height"
+      [alt]="loc(p.image.alt)"
+    />
+  </div>
+
+  <div class="content">
+    <p class="meta">
+      <span>{{ p.year }}</span>
+      @if (comingSoon()) {
+        <span class="badge">{{ t('projects.comingSoon') }}</span>
+      }
+    </p>
+
+    <h3 class="title">
+      @if (comingSoon()) {
+        {{ p.title }}
+      } @else {
+        <a class="title-link" [routerLink]="detailPath()">{{ p.title }}</a>
+      }
+    </h3>
+
+    <p class="summary">{{ loc(p.summary) }}</p>
+
+    <ul class="tag-list" role="list" [attr.aria-label]="t('detail.stack')">
+      @for (tech of p.stack; track tech) {
+        <li>
+          <button
+            type="button"
+            class="tag"
+            [attr.aria-pressed]="tech === activeTech()"
+            [attr.aria-label]="t('projects.filterBy', { tech })"
+            (click)="techSelected.emit(tech)"
+          >
+            {{ tech }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    @if (!comingSoon()) {
+      <div class="links">
+        <a class="link-arrow" [routerLink]="detailPath()">
+          {{ t('projects.details') }}<span class="visually-hidden">: {{ p.title }}</span>
+          <app-icon name="arrowRight" />
+        </a>
+        @if (p.repoUrl; as repoUrl) {
+          <a class="link-icon" [href]="repoUrl" target="_blank" rel="noopener">
+            <app-icon name="github" /> {{ t('projects.repo') }}
+            <span class="visually-hidden">{{ p.title }} {{ t('a11y.newTab') }}</span>
+          </a>
+        }
+        @if (p.demoUrl; as demoUrl) {
+          <a class="link-icon" [href]="demoUrl" target="_blank" rel="noopener">
+            <app-icon name="external" /> {{ t('projects.demo') }}
+            <span class="visually-hidden">{{ p.title }} {{ t('a11y.newTab') }}</span>
+          </a>
+        }
+      </div>
+    }
+  </div>
+</article>
