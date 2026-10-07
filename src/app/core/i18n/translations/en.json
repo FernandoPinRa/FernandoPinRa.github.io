@@ -1,0 +1,86 @@
+{
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "primaryNav": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Switch between light and dark theme",
+    "switchLanguage": "Ver esta web en español",
+    "newTab": "(opens in a new tab)"
+  },
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "home": "Home"
+  },
+  "hero": {
+    "greeting": "Hi, I’m",
+    "ctaProjects": "See projects",
+    "ctaCv": "Download CV",
+    "ctaCvHint": "PDF",
+    "ctaContact": "Let’s talk"
+  },
+  "about": {
+    "title": "About me",
+    "languages": "Languages",
+    "education": "Education",
+    "location": "Location"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "stack": "Technologies"
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "A selection of what I build outside work. Filter by technology or click a tag on any card.",
+    "filterLabel": "Filter projects by technology",
+    "all": "All",
+    "countOne": "{count} project",
+    "countOther": "{count} projects",
+    "empty": "No projects with that technology yet.",
+    "repo": "Code",
+    "demo": "Demo",
+    "details": "View details",
+    "comingSoon": "Coming soon",
+    "filterBy": "Filter by {tech}"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "contact": {
+    "title": "Contact",
+    "heading": "Shall we build something together?",
+    "text": "I’m looking for a remote position as an Angular Front-End or Full Stack developer. If I’m a good fit for your team, drop me a line.",
+    "emailCta": "Send me an email"
+  },
+  "footer": {
+    "builtWith": "Built with Angular, signals and SCSS. No UI frameworks.",
+    "source": "View source",
+    "backToTop": "Back to top"
+  },
+  "detail": {
+    "back": "All projects",
+    "overview": "Overview",
+    "highlights": "Highlights",
+    "stack": "Stack",
+    "links": "Links",
+    "year": "Year",
+    "more": "More projects"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "This page doesn’t exist",
+    "text": "The link may be broken or the page may have moved.",
+    "home": "Back to home"
+  },
+  "seo": {
+    "homeTitle": "Fernando Pintado Ramos · Angular Front-End Developer",
+    "homeDescription": "Portfolio of Fernando Pintado Ramos, a Front-End developer specialised in Angular and TypeScript with a full stack background in Python and Django. Open to remote work.",
+    "notFoundTitle": "Page not found · Fernando Pintado Ramos",
+    "projectTitle": "{project} · Projects by Fernando Pintado Ramos"
+  }
+}
