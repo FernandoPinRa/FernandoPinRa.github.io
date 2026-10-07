@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#f3e8ff"/>
+      <stop offset=".25" stop-color="#c084fc"/>
+      <stop offset=".6" stop-color="#7e22ce" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#3b0764" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e0f2fe"/>
+      <stop offset=".4" stop-color="#38bdf8" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#0c4a6e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="red" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffe4e6"/>
+      <stop offset=".4" stop-color="#f43f5e" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#4c0519" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="750" fill="#0b0a12"/>
+  <g fill="none" stroke="#a78bfa" stroke-opacity=".18">
+    <circle cx="600" cy="375" r="170"/>
+    <circle cx="600" cy="375" r="250"/>
+    <circle cx="600" cy="375" r="340"/>
+    <circle cx="600" cy="375" r="440"/>
+  </g>
+  <circle cx="330" cy="375" r="150" fill="url(#blue)"/>
+  <circle cx="870" cy="375" r="150" fill="url(#red)"/>
+  <circle cx="600" cy="375" r="230" fill="url(#purple)"/>
+  <!-- Hand landmarks -->
+  <g stroke="#f5f3ff" stroke-opacity=".75" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M560 560 520 470 505 400M560 560 590 450 600 360 605 300M560 560 630 460 660 380 675 330M560 560 660 500 700 440 720 400M560 560 680 545 730 520"/>
+  </g>
+  <g fill="#f5f3ff">
+    <circle cx="560" cy="560" r="7"/><circle cx="520" cy="470" r="6"/><circle cx="505" cy="400" r="6"/>
+    <circle cx="590" cy="450" r="6"/><circle cx="600" cy="360" r="6"/><circle cx="605" cy="300" r="6"/>
+    <circle cx="630" cy="460" r="6"/><circle cx="660" cy="380" r="6"/><circle cx="675" cy="330" r="6"/>
+    <circle cx="660" cy="500" r="6"/><circle cx="700" cy="440" r="6"/><circle cx="720" cy="400" r="6"/>
+    <circle cx="680" cy="545" r="6"/><circle cx="730" cy="520" r="6"/>
+  </g>
+</svg>
